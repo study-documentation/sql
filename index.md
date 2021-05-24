@@ -69,3 +69,56 @@ So, `_b%` means a word with the second letter as b and ony number of characters 
 (Note that `LIKE` is somewhat out dated. Regex can do anything `LIKE` can. )
 
 ### REGEX
+`^` beginning of a string.
+`&` end of a string.
+`|` or
+`[git]` or `[g-t]` specific characters or a range of characters
+
+`WHERE last_name REGEXP 'field'` - last name contains field
+`WHERE last_name REGEXP '^field'` - last name begins with field
+`WHERE last_name REGEXP 'field&'` - last name ends with field
+`WHERE last_name REGEXP '^field|mac|key'` - last name begins with field or contains mac or key
+`WHERE last_name REGEXP 'b[ru]'` - last name contains a 'b' that is followed by an 'r' or 'u'
+
+### IS NULL
+Find all orders that have not been shipped<br>
+`SELECT * FROM orders`<br>
+`WHERE ship_date IS NULL`<br>
+
+or, find non null values...
+Find all customers with a phone number in their records  
+`SELECT * FROM customers`<br>
+`WHERE phone_number IS NOT NULL`<br>
+
+### ORDER BY
+The default ordering of a query is via the primary key. This can be overridden with `ORDER BY`
+
+Order by last name desceneding
+`SELECT * FROM customers`<br>
+`ORDER BY last_name DESC`
+
+Order by state in desceneding order then by first name
+`SELECT * FROM customers`<br>
+`ORDER BY state DESC, first_name`
+
+These `ORDER BY` commands do not need to columns in the table. They can be aliases or arithmetic expressions.  
+For example, find all items with an order number of 2 sorted total price (highest first)
+
+`SELECT *, quantity * unit_prince AS total_price FROM orders`<br>
+`WHERE order_number = 2`<br>
+`ORDER BY total_price DESC`<br>
+
+### LIMIT
+Used to create a query that displays only a portion of the applicable results.  
+Retun the first three customers  
+`SELECT * FROM customers LIMIT 3`
+
+Return customers 7 - 9  
+`SELECT * FROM customers LIMIT 6, 3`
+
+-or-
+
+Select the top three customers based on loyalty points  
+`SELECT * FROM customers ORDER BY points LIMIT 3`
+
+## 
