@@ -67,3 +67,5 @@ The `LIKE` Operator is a non case sensitive operator used in queries to identify
 So, `_b%` means a word with the second letter as b and ony number of characters there after.  
 
 (Note that `LIKE` is somewhat out dated. Regex can do anything `LIKE` can. )
+
+### REGEX
