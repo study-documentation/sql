@@ -14,6 +14,7 @@ after installing MySQL log in via the terminal is not possible unless it MySQL i
 * add the line `export PATH=$PATH:/usr/local/mysql/bin/` 
 * save and exit
 * back in the terminal enter `source ~/.zshrc`
+---
 
 ## **Retrieving Data From a Single Table**
 
@@ -121,4 +122,9 @@ Return customers 7 - 9
 Select the top three customers based on loyalty points  
 `SELECT * FROM customers ORDER BY points LIMIT 3`
 
-## 
+To avoid a SQL syntax error `LIMIT` must appear at the end of an query.
+
+---
+
+## Retrieving Data From Multiple Tables
+
